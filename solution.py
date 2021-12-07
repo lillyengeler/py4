@@ -125,14 +125,11 @@ def ping(host, timeout=1):
         delayList.append(delay)  # adding the delay for each ping to a list
         time.sleep(1)  # one second
 
-    for i in delayList:
-        print(i)
-
     # calculating values and multiplying by 1000 to convert from seconds to milliseconds
-    packet_min = 1000 * min(delayList)
-    packet_max = 1000 * max(delayList)
-    packet_avg = 1000 * (sum(delayList))/(len(delayList))
-    stdev_var = 1000 * statistics.stdev(delayList)
+    packet_min = 1000 * (min(delayList))
+    packet_max = 1000 * (max(delayList))
+    packet_avg = 1000 * ((sum(delayList))/(len(delayList)))
+    stdev_var = 1000 * (statistics.stdev(delayList))
 
     vars = [str(round(packet_min, 2)), str(round(packet_avg, 2)), str(round(packet_max, 2)),
             str(round(statistics.stdev(stdev_var), 2))]
